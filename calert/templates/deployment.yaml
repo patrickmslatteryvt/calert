@@ -54,7 +54,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
         - name: config-dir
-          configMap:
+          secret:
             name: calert-config
             items:
             - key: config.toml

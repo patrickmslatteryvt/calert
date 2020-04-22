@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-configmap:
+secret:
     # All timeouts and durations are in milliseconds.
   server:
     address: ":6000"

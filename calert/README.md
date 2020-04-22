@@ -12,7 +12,7 @@ $ helm install incubator/calert --values=calert_values.yaml --name=calert --name
 calert_values.yaml
 
 ```yaml
-configmap:
+secret:
   rooms: |
 
     [app.chat.cluster001-alerts]
@@ -30,18 +30,18 @@ configmap:
 | `image.tag`                                 | Docker image tag                                                 | 1.0.0-stable                    |
 | `image.pullPolicy`                          | Docker image pull policy                                         | Always                          |
 | `replicaCount`                              | Number of pod replicas                                           | 1                               |
-| `configmap.server.address`                  | Port that the app listens to in the pod                          | ":6000"                         |
-| `configmap.server.socket`                   | Socket that the app listens to in the pod                        | "/tmp/calert.sock"              |
-| `configmap.server.name`                     | Name for the server instance                                     | "calert"                        |
-| `configmap.server.read_timeout`             | Read timeout in milliseconds                                     | "8000"                          |
-| `configmap.server.write_timeout`            | Write timeout in milliseconds                                    | "8000"                          |
-| `configmap.server.keepalive_timeout`        | Keepalive timeout in milliseconds                                | "300000"                        |
-| `configmap.app.template_file`               | Application template file                                        | "message.tmpl"                  |
-| `configmap.app.http_client.max_idle_conns`  | Client max idele connections                                     | "100"                           |
-| `configmap.app.http_client.request_timeout` | Client request timeout in milliseconds                           | "8000"                          |
-| `configmap.rooms`                           | List of webhooks to send to. See `calert_values.yaml` above      | [app.chat.alertManagerTestRoom] |
+| `secret.server.address`                     | Port that the app listens to in the pod                          | ":6000"                         |
+| `secret.server.socket`                      | Socket that the app listens to in the pod                        | "/tmp/calert.sock"              |
+| `secret.server.name`                        | Name for the server instance                                     | "calert"                        |
+| `secret.server.read_timeout`                | Read timeout in milliseconds                                     | "8000"                          |
+| `secret.server.write_timeout`               | Write timeout in milliseconds                                    | "8000"                          |
+| `secret.server.keepalive_timeout`           | Keepalive timeout in milliseconds                                | "300000"                        |
+| `secret.app.template_file`                  | Application template file                                        | "message.tmpl"                  |
+| `secret.app.http_client.max_idle_conns`     | Client max idele connections                                     | "100"                           |
+| `secret.app.http_client.request_timeout`    | Client request timeout in milliseconds                           | "8000"                          |
+| `secret.rooms`                              | List of webhooks to send to. See `calert_values.yaml` above      | [app.chat.alertManagerTestRoom] |
 | `service.type`                              | Service type                                                     | ClusterIP                       |
-| `service.port`                              | Should be same as `configmap.server.address` but without the `:` | 6000                            |
+| `service.port`                              | Should be same as `secret.server.address` but without the `:` | 6000                            |
 
 
 ## Alertmanager configuration
